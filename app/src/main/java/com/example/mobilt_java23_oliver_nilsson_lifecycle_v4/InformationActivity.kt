@@ -1,5 +1,6 @@
 package com.example.mobilt_java23_oliver_nilsson_lifecycle_v4
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -32,6 +33,11 @@ class InformationActivity : AppCompatActivity() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
         loadUserData(userId)
+
+        menuButton.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
 
         saveButton.setOnClickListener {
             saveUserData(userId)
